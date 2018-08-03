@@ -20,8 +20,7 @@ public class AppInit implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 
         ctx.register(WebConfig.class);
-        //RootConfig & WebInit
-        //servletContext.addListener(new ContextLoaderListener(ctx));
+        servletContext.addListener(new ContextLoaderListener(ctx));
         ctx.setServletContext(servletContext);
 
         ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER_SERVLET_NAME,
